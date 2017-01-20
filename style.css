@@ -1,0 +1,18 @@
+.name {
+  color: blue
+}
+h3:before {
+  content: 'Yo: '
+}
+#next {
+  display:none;
+}
+#girl:before {
+  content:'Chica: ';
+}
+
+body {
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 100%;
+}
