@@ -1,16 +1,22 @@
 var htmlSong = document.getElementById('song')
 var discussion = document.querySelector('#discussion p')
 var girl = {}
+var context = {girl:girl}
 
 function notifySongStarted(){
   console.log('started!')
-  htmlSong.innerHTML = 'Que cancion es esta?'
-  document.getElementById('girl').innerHTML = '...'
+  var question = questions.a0
+  var description = question.descriptions[Math.floor(Math.random()*question.descriptions.length)]
+  renderInBox('Pensando', '<span class="thought">'+description+'</span>', function(){
+    var answers = getSimilarSongs(context.playing)
+    answers = arrayToSongs(shuffle(answers))
+    renderQuestionOptions(question, answers, context)
+  })
 }
 
 function startPlaying(){
   setupGirl()
-  nextSong({girl:girl})
+  nextSong(context)
 }
 
 function disableClicks(){
@@ -46,20 +52,28 @@ function updateSelectedSong(context, song){
   context.relatedE = songs[shuffle(getSongsByYear(song.released))[0]]
 }
 
+var renderText = false
+var fullText = ''
 function renderInBox(person, text, callback){
-  discussion.innerHTML = person+': '+text;
+  discussion.innerHTML = person+': ';
+  discussion.innerHTML = discussion.innerHTML+' '+text;
   setTimeout(function(){
     callback()
-  }, 5000)
+  }, 3000)
 }
 
+function loop(){
+  if(renderText){
+
+  }
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+
 function renderAnswer(question, context, callback){
-  console.log(question)
   var index = Math.floor(Math.random()*question.variations.length)
-  console.log(index)
   var sentence = question.variations[index]
-  console.log(sentence)
-  htmlSong.innerHTML = replaceContext(sentence, context)
   renderInBox('Yo', replaceContext(sentence, context), callback)
 }
 
@@ -68,13 +82,12 @@ function renderTalkOptions(options, context){
   options.forEach(function(value, index){
     var button = document.getElementById('option'+index)
     var answer = replaceContext(value.sentence, context)
-    button.innerHTML = answer
+    button.innerHTML = (index+1)+") "+answer
     button.onclick = function(){
       disableClicks()
-      htmlSong.innerHTML = answer
-      setTimeout(function(){
+      renderInBox('Yo', answer, function(){
         handleReaction(reactions[value.reaction], context)
-      }, 1000)
+      })
     }
   })
 }
@@ -85,12 +98,10 @@ function renderQuestionOptions(question, options, context){
   options.forEach(function(value, index){
     var button = document.getElementById('option'+index)
     var answer = value.name
-    button.innerHTML = answer
+    button.innerHTML = (index+1)+") "+answer
     button.onclick = function(){
       disableClicks()
-      console.log(context)
       updateSelectedSong(context, value)
-      console.log(context)
       renderAnswer(question, context, function(){
         handleReaction(reaction, context, context.selected.index == context.playing.index)
       })
@@ -101,6 +112,7 @@ function renderQuestionOptions(question, options, context){
 // a reaction object, context object, and good or bad answer
 function handleReaction(reaction, context, good){
   var key = 'good'
+  console.log(reaction)
   if(reaction.type=='debate'){
     // up or down votes depending on good
     key = good?'good':'bad'

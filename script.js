@@ -1,7 +1,13 @@
-question = {
+questions = {
   a0: {
     type: 'name',
-    description: 'name of the song by music',
+    descriptions: [
+      '¿Qué canción es esta?',
+      'Yo recuerdo esta canción...',
+      'Esta canción es...',
+      '¿Cúal era el nombre de esta canción?',
+      'Yo me sabia el titulo de esta canción...'
+    ],
     variations: [
       'Empezamos bien, {XXX} que buena canción!',
       'Uff {XXX}!',
@@ -221,14 +227,14 @@ talk = {
     options: [
       {sentence:'Solo bromeo ;-)', reaction:'rshy'},
       {sentence:'Muy en serio', reaction:'rshy'},
-      {sentence:'No, solo lo digo para que creas que en realidad sabia de que cancion hablaba :P', trigger:'rlaugh'}
+      {sentence:'No, solo lo digo para que creas que en realidad sabia de que cancion hablaba :P', reaction:'rlaugh'}
     ]
   },
   t3: {
     options: [
       {sentence:'Solo bromeo ;-)', reaction:'rshy'},
       {sentence:'Muy en serio', reaction:'rshy'},
-      {sentence:'No, solo lo digo para que creas que en realidad sabia de que cancion hablaba :P', trigger:'rlaugh'}
+      {sentence:'No, solo lo digo para que creas que en realidad sabia de que cancion hablaba :P', reaction:'rlaugh'}
     ]
   },
   t4: {

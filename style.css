@@ -75,7 +75,11 @@ button:hover {
   padding: 1.5rem;
 }
 
-.song, .artist, .decade {
+.song, .artist, .decade, .thought {
   font-style: italic;
   color: rgb(240,240,20);
+}
+
+.thought {
+  color: rgb(20,200,200);
 }

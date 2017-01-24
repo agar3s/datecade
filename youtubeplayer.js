@@ -8,11 +8,6 @@ function nextSong(context){
 
   youtubePlayer.loadVideoById(song.id, song.second)
   youtubePlayer.playVideo()
-  var answers = getSimilarSongs(song)
-  console.log(answers)
-  answers = arrayToSongs(shuffle(answers))
-  console.log(answers)
-  renderQuestionOptions(question.a0, answers, context)
 }
 
 
@@ -47,7 +42,7 @@ function onYouTubeIframeAPIReady(){
           notifySongStarted()
           return
         }else if(youtubePlayer.getPlayerState() == 0){
-          nextSong({girl:girl})
+          nextSong(context)
         }
       }
     }
