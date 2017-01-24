@@ -16,30 +16,30 @@ reactions = {
     type:'debate',
     good: {
       nice: [
-        {sentence:'Si, es una de mis canciones favoritas.', trigger:'?'},
-        {sentence:'Si, es una de mis canciones favoritas.', trigger:'?'}
+        {sentence:'Si, es una de mis canciones favoritas.', trigger:'?', mood:':D'},
+        {sentence:'Si, es una de mis canciones favoritas.', trigger:'?', mood:':D'}
       ],
       normal: [
-        {sentence:'Si es una buena cancion, pero no mas que {XZX}.', trigger:'?'},
-        {sentence:'Es un clasico. Como {XZX}.', trigger:'?'}
+        {sentence:'Si es una buena cancion, pero no mas que {XZX}.', trigger:'?', mood:':)'},
+        {sentence:'Es un clasico. Como {XZX}.', trigger:'?', mood:':)'}
       ],
       bad: [
-        {sentence:'No tienes mal gusto musical despues de todo.', trigger:'?'},
-        {sentence:'Entonces si conoces algo de buena musica.', trigger:'?'}
+        {sentence:'No tienes mal gusto musical despues de todo.', trigger:'?', mood:'¬¬'},
+        {sentence:'Entonces si conoces algo de buena musica.', trigger:'?', mood:'¬¬'}
       ]
     },
     bad: {
       nice: [
-        {sentence:'Jajaja, esa no es {XXX} es {XYX}', trigger:'t1'},
-        {sentence:'{XXX}? Jamas! es {XYX}, tendre que ensenarte algo de buena musica', trigger:'t1'}
+        {sentence:'Jajaja, esa no es {XXX} es {XYX}', trigger:'t1',mood:':D'},
+        {sentence:'{XXX}? Jamas! es {XYX}, tendre que ensenarte algo de buena musica', trigger:'t1',mood:':D'}
       ],
       normal: [
-        {sentence:'No seas tonto, esa no es {XXX} es {XYX}', trigger:'t1'},
-        {sentence:'{XXX}? para nada es {XYX}', trigger:'t1'}
+        {sentence:'No seas tonto, esa no es {XXX} es {XYX}', trigger:'t1',mood:':)'},
+        {sentence:'{XXX}? para nada es {XYX}', trigger:'t1',mood:':)'}
       ],
       bad: [
-        {sentence:'que tonterias dices? esa no es {XXX}, pense que te gustaba la musica de...', trigger:'?'},
-        {sentence:'Definitivamente no es {XXX}, esa cancion es de...', trigger:'?'}
+        {sentence:'que tonterias dices? esa no es {XXX}, pense que te gustaba la musica de...', trigger:'?',mood:':O'},
+        {sentence:'Definitivamente no es {XXX}, esa cancion es de...', trigger:'?',mood:':O'}
       ]
     }
   },
@@ -47,16 +47,16 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence:'Tu tambien a mi, un poco...', trigger:'t3'},
-        {sentence:'Hablas en serio?', trigger:'t2'}
+        {sentence:'Tu tambien a mi, un poco...', trigger:'t3',mood:':#'},
+        {sentence:'Hablas en serio?', trigger:'t2',mood:':#'}
       ],
       normal: [
-        {sentence:'Por favor... Me sonrojas', trigger:'question'},
-        {sentence:'Jajajaja', trigger:'question'}
+        {sentence:'Por favor... Me sonrojas', trigger:'question',mood:':#'},
+        {sentence:'Jajajaja', trigger:'question',mood:':#'}
       ],
       bad: [
-        {sentence:'...', trigger:'question'},
-        {sentence:'Yo creo que te haces el pendejo.', trigger:'question'}
+        {sentence:'...', trigger:'question',mood:'¬¬'},
+        {sentence:'Yo creo que te haces el pendejo.', trigger:'question', mood:'¬¬'}
       ]
     }
   },
@@ -64,13 +64,13 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence: 'no me crees?', trigger: 't0'}
+        {sentence: 'no me crees?', trigger: 't0',mood:':O'}
       ],
       normal: [
-        {sentence: 'estas diciendo que soy una mentirosa?', trigger: 't0'}
+        {sentence: 'estas diciendo que soy una mentirosa?', trigger: 't0',mood:'¬¬'}
       ],
       bad: [
-        {sentence: 'segun tu, yo no se nada de musica.', trigger: 't0'}
+        {sentence: 'segun tu, yo no se nada de musica.', trigger: 't0',mood:':@'}
       ]
     }
   },
@@ -78,11 +78,11 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence: 'Son copias de {ZZZ} :D', trigger: 'question'},
-        {sentence: 'una que otra canción es similar pero no toda', trigger: 'question'}
+        {sentence: 'Son copias de {ZZZ}.', trigger: 'question',mood:':D'},
+        {sentence: 'una que otra canción es similar pero no toda.', trigger: 'question',mood:':)'}
       ],
       normal: [
-        {sentence: 'para nada, la musica de los {DECADE}\'s es la mejor', trigger: 'question'}
+        {sentence: 'para nada, la musica de los {DECADE} es la mejor', trigger: 'question',mood:':O'}
       ]
     }
   },
@@ -90,15 +90,15 @@ reactions = {
     type:'debate',
     good: {
       nice: [
-        {sentence: 'Claro {ZZZ} toca {XXX}, pero no. Esa no es la cancion que suena.', trigger: 'question'}
+        {sentence: 'Claro {ZZZ} toca {XXX}, pero no. Esa no es la cancion que suena.', trigger: 'question',mood:':D'}
       ]
     },
     bad: {
       normal: [
-        {sentence: 'Pues no conoces tanto de {ZZZ} para confundirlos con {ZXZ}.', trigger:'t4'}
+        {sentence: 'Pues no conoces tanto de {ZZZ} para confundirlos con {ZXZ}.', trigger:'t4',mood:'¬¬'}
       ],
       bad: [
-        {sentence: 'De verdad confundes {ZZZ} con {ZXZ}? pense que sabias...', trigger:'t4'}
+        {sentence: 'De verdad confundes {ZZZ} con {ZXZ}? pense que sabias...', trigger:'t4',mood:':@'}
       ]
     }
   },
@@ -106,15 +106,15 @@ reactions = {
     type:'debate',
     good: {
       nice: [
-        {sentence: 'estas confundido, si son {ZXZ} pero lo que suena es {XYX}.', trigger: 't5'}
+        {sentence: 'estas confundido, si son {ZXZ} pero lo que suena es {XYX}.', trigger: 't5',mood:':D'}
       ]
     },
     bad: {
       normal: [
-        {sentence: 'Pues no conoces tanto de {ZZZ} para confundirlos con {ZXZ}.', trigger:'t4'}
+        {sentence: 'Pues no conoces tanto de {ZZZ} para confundirlos con {ZXZ}.', trigger:'t4', mood:'¬¬'}
       ],
       bad: [
-        {sentence: 'De verdad confundes {ZZZ} con {ZXZ}? pense que sabias...', trigger:'t4'}
+        {sentence: 'De verdad confundes {ZZZ} con {ZXZ}? pense que sabias...', trigger:'t4',mood:':@'}
       ]     
     }
   },
@@ -122,10 +122,10 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence: 'es {XYX} :)', trigger:'question'}
+        {sentence: 'es {XYX} :)', trigger:'question', mood:':D'}
       ],
       normal: [
-        {sentence: 'cambias muy facil de parecer.', trigger: 'question'}
+        {sentence: 'cambias muy facil de parecer.', trigger: 'question',mood:':)'}
       ]
     }
   },
@@ -133,13 +133,13 @@ reactions = {
     type:'talk',
     good: {
       nice:[
-        {sentence: 'claro que si, lo son.', trigger:'question'}
+        {sentence: 'claro que si, lo son.', trigger:'question', mood:':)'}
       ],
       normal:[
-        {sentence: 'pense que si te gusba la musica de los {DECADE}\'s.', trigger:'question'}
+        {sentence: 'pense que si te gusba la musica de los {DECADE}.', trigger:'question',mood:'¬¬'}
       ],
       bad:[
-        {sentence: '... :@', trigger:'question'}
+        {sentence: '...', trigger:'question',mood:':@'}
       ]
     }
   },
@@ -147,13 +147,13 @@ reactions = {
     type:'talk',
     good: {
       nice:[
-        {sentence: 'hazlo', trigger:'end'}
+        {sentence: 'hazlo', trigger:'end',mood:':)'}
       ],
       normal:[
-        {sentence: 'te daras cuenta que yo tengo la razon', trigger:'end'}
+        {sentence: 'te daras cuenta que yo tengo la razon', trigger:'end',mood:'¬¬'}
       ],
       bad:[
-        {sentence: 'no aceptas que una chica conozca mas que tu?', trigger:'end'}
+        {sentence: 'no aceptas que una chica conozca mas que tu?', trigger:'end',mood:':@'}
       ]
     }
   },
@@ -161,10 +161,10 @@ reactions = {
     type:'talk',
     good: {
       normal: [
-        {sentence: 'la tengo', trigger:'question'}
+        {sentence: 'la tengo', trigger:'question',mood:'¬¬'}
       ],
       bad: [
-        {sentence: 'por supuesto que la tengo', trigger:'question'}
+        {sentence: 'por supuesto que la tengo', trigger:'question',mood:'¬¬'}
       ]
     }
   },
@@ -172,13 +172,13 @@ reactions = {
     type:'talk',
     good: {
       nice:[
-        {sentence: 'Jajaja, no te creo', trigger:'end'}
+        {sentence: 'Jajaja, no te creo', trigger:'end',mood:':#'}
       ],
       normal:[
-        {sentence: 'Claro que si... :)', trigger:'end'}
+        {sentence: 'Claro que si...', trigger:'end',mood:':)'}
       ],
       bad:[
-        {sentence: 'Ah si? Ya veremos que tanto sabes tu.', trigger:'end'}
+        {sentence: 'Ah si? Ya veremos que tanto sabes tu.', trigger:'end',mood:':O'}
       ]
     }
   },
@@ -186,8 +186,8 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence:':)', trigger:'question'},
-        {sentence:'Por favor... Me haces sonrojar', trigger:'question'}
+        {sentence:':)', trigger:'question',mood:':#'},
+        {sentence:'Por favor... Me haces sonrojar', trigger:'question',mood:':#'}
       ]
     }
   },
@@ -195,8 +195,8 @@ reactions = {
     type:'talk',
     good: {
       nice: [
-        {sentence: 'tonto :)', trigger:'question'},
-        {sentence: 'Jajajaja :)', trigger:'question'}
+        {sentence: 'tonto :)', trigger:'question',mood:':D'},
+        {sentence: 'Jajajaja :)', trigger:'question',mood:':D'}
       ]
     }
   }
@@ -214,7 +214,7 @@ talk = {
     options: [
       {sentence:'la verdad es que tu me desconcentras...', reaction:'r1'},
       {sentence:'de verdad? estoy seguro que es {XXX}', reaction:'r2'},
-      {sentence:'es que toda la musica de los {DECADE}\'s suena igual', reaction:'r3'}
+      {sentence:'es que toda la musica de los {DECADE} suena igual', reaction:'r3'}
     ]
   },
   t2: {

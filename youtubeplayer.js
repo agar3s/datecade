@@ -1,6 +1,7 @@
 var youtubePlayer = undefined;
 
 function nextSong(context){
+  console.log(youtubePlayer)
   var song = getNextSong()
   context.playing = song
   context.relatedB = songs[shuffle(getSongsBySongArtist(song))[0]]
@@ -52,3 +53,9 @@ function onYouTubeIframeAPIReady(){
     }
   })
 }
+
+setTimeout(function(){
+  if(!youtubePlayer){
+    onYouTubeIframeAPIReady()
+  }
+}, 5000)

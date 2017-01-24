@@ -1,4 +1,5 @@
 var htmlSong = document.getElementById('song')
+var discussion = document.querySelector('#discussion p')
 var girl = {}
 
 function notifySongStarted(){
@@ -9,7 +10,6 @@ function notifySongStarted(){
 
 function startPlaying(){
   setupGirl()
-  document.body.style='background-image:url("imgs/'+girl.name+'.jpg")'
   nextSong({girl:girl})
 }
 
@@ -22,16 +22,16 @@ function disableClicks(){
 }
 
 function replaceContext(sentence, context){
-  return sentence.replace('{XXX}', context.selected.name)
-         .replace('{ZZZ}', context.selected.artist)
-         .replace('{XYX}', context.playing.name)
-         .replace('{ZXZ}', context.playing.artist)
-         .replace('{XCX}', context.relatedA.name)
-         .replace('{XDX}', context.relatedB.name)
-         .replace('{DECADE}', context.playing.decade)
-         .replace('{XZX}', context.relatedC.name)
-         .replace('{XAX}', context.relatedD.name)
-         .replace('{XBX}', context.relatedE.name)
+  return sentence.replace('{XXX}', '<span class="song">'+context.selected.name+'</span>')
+         .replace('{ZZZ}', '<span class="artist">'+context.selected.artist+'</span>')
+         .replace('{XYX}', '<span class="song">'+context.playing.name+'</span>')
+         .replace('{ZXZ}', '<span class="artist">'+context.playing.artist+'</span>')
+         .replace('{XCX}', '<span class="song">'+context.relatedA.name+'</span>')
+         .replace('{XDX}', '<span class="song">'+context.relatedB.name+'</span>')
+         .replace('{DECADE}', '<span class="decade">'+context.playing.decade+'\'s</span>')
+         .replace('{XZX}', '<span class="song">'+context.relatedC.name+'</span>')
+         .replace('{XAX}', '<span class="song">'+context.relatedD.name+'</span>')
+         .replace('{XBX}', '<span class="song">'+context.relatedE.name+'</span>')
 }
 
 function updateSelectedSong(context, song){
@@ -46,13 +46,21 @@ function updateSelectedSong(context, song){
   context.relatedE = songs[shuffle(getSongsByYear(song.released))[0]]
 }
 
-function renderAnswer(question, context){
+function renderInBox(person, text, callback){
+  discussion.innerHTML = person+': '+text;
+  setTimeout(function(){
+    callback()
+  }, 5000)
+}
+
+function renderAnswer(question, context, callback){
   console.log(question)
   var index = Math.floor(Math.random()*question.variations.length)
   console.log(index)
   var sentence = question.variations[index]
   console.log(sentence)
   htmlSong.innerHTML = replaceContext(sentence, context)
+  renderInBox('Yo', replaceContext(sentence, context), callback)
 }
 
 // options are array of sentences.
@@ -83,10 +91,9 @@ function renderQuestionOptions(question, options, context){
       console.log(context)
       updateSelectedSong(context, value)
       console.log(context)
-      renderAnswer(question, context)
-      setTimeout(function(){
+      renderAnswer(question, context, function(){
         handleReaction(reaction, context, context.selected.index == context.playing.index)
-      }, 1000)
+      })
     }
   })
 }
@@ -106,10 +113,11 @@ function handleReaction(reaction, context, good){
   var indexAnswer = Math.floor(Math.random()*mood.length)
   var answer = mood[indexAnswer]
   // render girl answer
-  document.getElementById('girl').innerHTML = replaceContext(answer.sentence, context)
-  setTimeout(function(){
+  //document.getElementById('girl').innerHTML = replaceContext(answer.sentence, context)
+  changeMood(MOODS[answer.mood])
+  renderInBox(girl.name, replaceContext(answer.sentence, context), function(){
     handleTrigger(answer.trigger, context)
-  }, 2000)
+  })
 }
 
 

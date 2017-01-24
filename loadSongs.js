@@ -12,4 +12,4 @@ var songs = buffer.split('\n').map(function(song){
   }
 })
 
-console.log("songs = "+songs)
+console.log("songs = "+JSON.stringify(songs))
